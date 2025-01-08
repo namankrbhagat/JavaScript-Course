@@ -52,7 +52,39 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
+///////////////////////////////////////
+// Sets
+const orderSet = new Set([
+  'Pizza',
+  'Pizza',
+  'Pizza',
+  'Rissotto',
+  'Pasta',
+  'Pasta',
+]);
+console.log(orderSet);
+console.log(new Set('Jonas'));
+console.log(orderSet.size);
+console.log(orderSet.has('Bread'));
+console.log(orderSet.has('Pizza'));
+orderSet.add('Garlic Bread');
+orderSet.add('Garlic Bread');
+orderSet.delete('Rissoto');
 
+console.log(orderSet);
+for(const order of orderSet){
+  console.log(order);
+}
+
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+const find = [...new Set(staff)];
+console.log(find);
+
+
+
+/*
+///////////////////////////////////////
+// Looping Objects: Object Keys, Values, and Entries
 const properties = Object.keys(openingHours);
 console.log(properties);
 
@@ -75,7 +107,8 @@ for(const [day, {open,close}] of entries){
 }
 
 
-/*
+
+
 ///////////////////////////////////////
 // Optional Chaining
 if (restaurant.openingHours && restaurant.openingHours.mon)
