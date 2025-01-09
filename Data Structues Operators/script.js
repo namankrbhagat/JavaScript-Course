@@ -52,6 +52,229 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
+///////////////////////////////////
+// Working with Strings - Part 3
+
+console.log('a+very+nice+string'.split('+'));
+console.log('Naman Kumar Bhagat'.split(' '));
+
+const [firstName,LastName] = 'Naman Bhagat'.split(' ');
+
+const newName = ['Mr.'+ firstName + LastName.toUpperCase()].join(' ');
+console.log(newName);
+
+const capitalize = function(name){
+  const names = name.split(' ');
+  const nameUpper = [];
+  for(const n of names){
+    nameUpper.push(n[0].toUpperCase() + n.slice(1));
+    console.log(namesUpper.join(' '));
+  }
+
+  capitalize('jessica ann smith davis');
+  capitalize('jonas schmedtmann');
+
+}
+
+//Padding
+const maskCreditCard = function(number){
+  const str = number + ''; // converts number to string
+  const last = str.slice(-4);
+  return last.padStart(str.length,'*');
+}
+
+console.log(maskCreditCard(64637836));
+console.log(maskCreditCard(43378463864647384));
+console.log(maskCreditCard('334859493847755774747'));
+
+//Repeat
+
+const msg2 = 'Bad Weather... All Departures Delayed... ';
+console.log(msg2.repeat(5));
+
+const planesInLine = function (n) {
+  console.log(`There are ${n} planes in line ${'✈️'.repeat(n)}`);
+};
+planesInLine(5);
+planesInLine(3);
+planesInLine(12);
+
+/*
+///////////////////////////////////
+// Working with Strings - Part 2
+
+const airline = 'TAP Air Portugal';
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+
+const passenger = 'jOnAS';
+const passLower = passenger.toLowerCase();
+const Correct = passLower[0].toUpperCase() + passLower.slice(1);
+
+console.log(Correct);
+
+//Comparing Emails
+const email = 'namanku@gmail.com';
+const login = ' Namanku@Gmail.com \n';
+
+const correctEmail = login.toLowerCase().trim();
+console.log(correctEmail);
+console.log(email === correctEmail);
+
+// replacing
+const priceGB = '288,97£';
+const priceUS = priceGB.replace('£', '$').replace(',', '.');
+console.log(priceUS);
+
+const announcement =
+  'All passengers come to boarding door 23. Boarding door 23!';
+
+console.log(announcement.replace('door', 'gate'));
+console.log(announcement.replaceAll('door', 'gate'));
+
+// Alternative solution to replaceAll with regular expression
+console.log(announcement.replace(/door/g, 'gate'));
+
+// Booleans
+const plane = 'Airbus A320neo';
+console.log(plane.includes('A320'));
+console.log(plane.includes('Boeing'));
+console.log(plane.startsWith('Airb'));
+
+if (plane.startsWith('Airbus') && plane.endsWith('neo')) {
+  console.log('Part of the NEW Airbus family');
+}
+
+//Practice Exercise
+
+const checkBaggage = function(items){
+  const baggage = items.toLowerCase();
+
+  if(baggage.includes('knife') || baggage.includes('gun')){
+    console.log('You are not allowed on board');
+  }else{
+    console.log('Welcome abroad!');
+  }
+};
+
+checkBaggage('I have a laptop, some Food and a pocket Knife');
+checkBaggage('Socks and camera');
+checkBaggage('Got some snacks and a gun for protection');
+
+
+
+
+///////////////////////////////////
+// Working with Strings - Part 1
+
+const airline = 'Air India';
+const plane = 'A230';
+
+console.log(plane[2]);
+console.log('B345'[1]);
+
+console.log(airline.length);
+console.log('B345'.length);
+
+console.log(airline.indexOf('i'));
+console.log(airline.lastIndexOf('i'));
+console.log(airline.indexOf('India'));
+
+console.log(airline.slice(4));
+console.log(airline.slice(4, 7));
+
+console.log(airline.slice(0, airline.indexOf(' ')));
+console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+
+console.log(airline.slice(-2));
+console.log(airline.slice(1, -1));
+
+const middleSeat = function(seat){
+  const s = seat.slice(-1);
+  if(s === 'B' || s === 'E'){
+    console.log('You got the middle seat 🥲');
+  }else{
+    console.log('You were lucky 😉');
+  }
+}
+
+middleSeat('11B');
+middleSeat('23C');
+middleSeat('3E');
+
+console.log(typeof new String('Naman'));
+console.log(typeof new String('Aman').slice(1));
+
+
+
+////////////////////////////////////
+// Maps: Iteration
+
+const ques = new Map([
+  ['Question','What is the best programming language in the world'],
+  [1,'C'],
+  [2,'Java'],
+  [3,'C++'],
+  ['correct',3],
+  [true, 'Correct Answer'],
+  [false, 'Try Again']
+]);
+
+console.log(ques);
+
+//Convert object to map
+console.log(Object.entries(openingHours));
+const hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap);
+
+
+//Quiz App
+for(const [key,value] of ques) {
+  if(typeof key === 'number'){
+    console.log(`Answer ${key} : ${value}`);
+    
+  }
+}
+
+const answer = Number(prompt('Your answer'));
+console.log(answer);
+
+console.log(ques.get(ques.get('correct') === answer));
+console.log(...ques);
+console.log(...ques.keys);
+console.log(...ques.values);
+
+
+
+
+/////////////////////////////////////
+// Maps Fundamentals
+const rest = new Map();
+rest.set('name','Classico Italiano');
+rest.set(1,'Firenze, Italy');
+console.log(rest.set(2,'Lisbon, Portugal'));
+
+rest
+    .set('categories',['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+    .set('open',11)
+    .set('close',23)
+    .set(true,'We are open :D')
+    .set(false, 'We are closed ');
+
+console.log(rest.get('name'));
+console.log(rest.get(true));
+console.log(rest.get(1));
+
+const time = 0;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
+console.log(rest.has('categories'));
+rest.delete(2);
+console.log(rest);
+
+
+
+
 ///////////////////////////////////////
 // Sets
 const orderSet = new Set([
@@ -82,7 +305,7 @@ console.log(find);
 
 
 
-/*
+
 ///////////////////////////////////////
 // Looping Objects: Object Keys, Values, and Entries
 const properties = Object.keys(openingHours);
