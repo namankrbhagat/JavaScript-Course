@@ -52,6 +52,26 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
+
+/*
+///////////////////////////////////
+// Coding Challenge 4
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+document.querySelector('button').addEventListener('click', function () {
+  const text = document.querySelector('textarea').value;
+  const rows = text.split('\n');
+
+  for(const [i,val] of rows.entries()){
+    const[first,second] = val.toLowerCase().trim().split('_');
+
+    const output = `${first}${second.replace(second[0],second[0].toUpperCase())}`;
+    console.log(`${output.padEnd(20)}${'✅'.repeat(i+1)}`);
+  }
+});
+
+
 ///////////////////////////////////
 // Working with Strings - Part 3
 
@@ -68,7 +88,7 @@ const capitalize = function(name){
   const nameUpper = [];
   for(const n of names){
     nameUpper.push(n[0].toUpperCase() + n.slice(1));
-    console.log(namesUpper.join(' '));
+    console.log(nameUpper.join(' '));
   }
 
   capitalize('jessica ann smith davis');
@@ -99,7 +119,9 @@ planesInLine(5);
 planesInLine(3);
 planesInLine(12);
 
-/*
+
+
+
 ///////////////////////////////////
 // Working with Strings - Part 2
 
