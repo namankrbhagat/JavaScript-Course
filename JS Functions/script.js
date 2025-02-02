@@ -51,12 +51,13 @@ const checkIn = function (flightNum,passenger) {
 checkIn(flight,details);
 console.log(flight);
 console.log(details);
-*/
+
 
 
 
 ///////////////////////////////////////
-// How Passing Arguments Works: Values vs. Reference
+//  Functions Accepting Callback Functions
+
 const oneWord = function (str) {
   return str.replace(/ /g, '').toLowerCase();
 };
@@ -83,3 +84,59 @@ const high5 = function () {
 };
 document.body.addEventListener('click', high5);
 ['Jonas', 'Martha', 'Adam'].forEach(high5);
+
+
+
+
+///////////////////////////////////
+// Functions Returning Functions
+
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const greeter = greet('Hey');
+greeter('Naman');
+greeter('Power');
+
+greet('Hello')('Vivek');
+*/
+
+
+
+///////////////////////////////////
+// Call and Apply Method
+
+const emirates = {
+  airline: 'Emirates',
+  iatacode: 'EM',
+  bookings: [],
+
+  book(flightNum, name) {
+     console.log(
+       `${name} booked a seat on ${this.airline} flight ${this.iatacode}${flightNum}`
+     );
+     this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+  },
+};
+
+emirates.book(123, 'Naman Bhagat');
+emirates.book(234, 'Vivek Kumar');
+
+console.log(emirates);
+
+const indigo = {
+  name: 'Indigo',
+  iataCode: 'IN',
+  bookings: [],
+};
+
+const book = emirates.book;
+
+//Does Not work
+// book(23,'Power Bhai');
+
+book.call(indigo,23,'Power Bhai' );
+console.log(indigo);
